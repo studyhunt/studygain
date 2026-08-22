@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StudyGain | Search</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f7ff;
+  color:#172033;
+}
+
+header{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+}
+
+.container{
+  max-width:800px;
+  margin:auto;
+  padding:20px 15px;
+}
+
+.back{
+  color:#2563eb;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.search-box{
+  background:white;
+  padding:20px;
+  margin-top:25px;
+  border-radius:15px;
+  box-shadow:0 4px 15px #0001;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  margin-top:12px;
+  padding:13px;
+  border:0;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.result{
+  background:white;
+  margin-top:15px;
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 3px 10px #0001;
+}
+
+.result a{
+  color:#2563eb;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.hidden{
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🔎 StudyGain Search</h1>
+<p>JEE resources quickly find karo</p>
+</header>
+
+<div class="container">
+
+<a class="back" href="index.html">← Back to StudyGain</a>
+
+<div class="search-box">
+
+<input
+  type="text"
+  id="searchInput"
+  placeholder="Search Maths, Physics, Chemistry..."
+>
+
+<button onclick="searchSite()">Search</button>
+
+</div>
+
+<div id="results">
+
+<div class="result">
+<a href="maths.html">📐 JEE Maths</a>
+<p>Important Maths formulas aur revision.</p>
+</div>
+
+<div class="result">
+<a href="physics.html">⚡ JEE Physics</a>
+<p>Physics topics aur important formulas.</p>
+</div>
+
+<div class="result">
+<a href="chemistry.html">🧪 JEE Chemistry</a>
+<p>Physical, Organic aur Inorganic Chemistry.</p>
+</div>
+
+<div class="result">
+<a href="notes.html">📚 Free Notes</a>
+<p>Study notes aur revision resources.</p>
+</div>
+
+<div class="result">
+<a href="quiz.html">📝 Practice Quiz</a>
+<p>JEE Maths practice questions.</p>
+</div>
+
+<div class="result">
+<a href="videos.html">🎥 Free Videos</a>
+<p>Educational video resources.</p>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function searchSite(){
+
+let input =
+document.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+let results =
+document.querySelectorAll(".result");
+
+results.forEach(function(result){
+
+let text =
+result.innerText.toLowerCase();
+
+if(input === "" || text.includes(input)){
+result.classList.remove("hidden");
+}else{
+result.classList.add("hidden");
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
