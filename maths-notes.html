@@ -21,6 +21,10 @@ header{
   padding:30px 15px;
 }
 
+header h1{
+  margin:0;
+}
+
 .container{
   max-width:850px;
   margin:auto;
@@ -35,7 +39,7 @@ header{
 
 .card{
   background:white;
-  padding:20px;
+  padding:22px;
   margin-top:18px;
   border-radius:15px;
   box-shadow:0 4px 12px #0001;
@@ -45,17 +49,39 @@ header{
   color:#2563eb;
 }
 
+.card h3{
+  color:#374151;
+  margin-top:20px;
+}
+
+.note{
+  line-height:1.7;
+  color:#4b5563;
+}
+
 .formula{
   background:#eff6ff;
   padding:12px;
   margin-top:10px;
   border-radius:8px;
   font-weight:bold;
+  color:#1e40af;
 }
 
-.note{
-  line-height:1.6;
-  color:#4b5563;
+.tip{
+  background:#fff7ed;
+  border-left:5px solid #f97316;
+  padding:12px;
+  margin-top:15px;
+  border-radius:8px;
+}
+
+footer{
+  margin-top:30px;
+  background:#172033;
+  color:white;
+  text-align:center;
+  padding:22px;
 }
 </style>
 </head>
@@ -72,6 +98,9 @@ header{
 <p>
 <a class="back" href="index.html">← Back to StudyGain</a>
 </p>
+
+
+<!-- Quadratic Equations -->
 
 <div class="card">
 
@@ -95,18 +124,18 @@ Roots: x = (−b ± √D) / 2a
 <h3>📊 Nature of Roots</h3>
 
 <p class="note">
-<strong>D &gt; 0:</strong> Do distinct real roots
+<strong>D &gt; 0:</strong> Do distinct real roots.
 </p>
 
 <p class="note">
-<strong>D = 0:</strong> Do equal real roots
+<strong>D = 0:</strong> Do equal real roots.
 </p>
 
 <p class="note">
-<strong>D &lt; 0:</strong> Real roots nahi hote
+<strong>D &lt; 0:</strong> Real roots nahi hote.
 </p>
 
-<h3>🎯 Useful Relations</h3>
+<h3>🎯 Roots ke Relations</h3>
 
 <div class="formula">
 α + β = −b/a
@@ -117,34 +146,31 @@ Roots: x = (−b ± √D) / 2a
 </div>
 
 <p class="note">
-Yahan α aur β quadratic equation ke roots hain.
+Yahan α aur β equation ke roots hain.
 </p>
 
-<h3>💡 JEE Tip</h3>
-
-<p class="note">
-Question solve karte waqt sabse pehle equation ko standard
-form mein lao aur discriminant check karo. Conditions on
-roots wale questions mein α + β aur αβ ka use bahut useful hota hai.
-</p>
-
-</div>
-
-<div class="formula">
-Roots: x = (−b ± √D) / 2a
+<div class="tip">
+<strong>💡 JEE Tip:</strong>
+Question solve karte waqt equation ko standard form mein lao
+aur sabse pehle discriminant check karo.
 </div>
 
 </div>
 
+
+<!-- Sequence and Series -->
 
 <div class="card">
 
-<h2>2. Sequence & Series</h2>
+<h2>2. Sequence &amp; Series</h2>
 
 <p class="note">
+Sequence numbers ka ordered collection hota hai.
 Arithmetic Progression (AP) mein consecutive terms ka difference
 constant hota hai.
 </p>
+
+<h3>📌 AP Formulas</h3>
 
 <div class="formula">
 aₙ = a + (n − 1)d
@@ -154,16 +180,45 @@ aₙ = a + (n − 1)d
 Sₙ = n/2 [2a + (n − 1)d]
 </div>
 
+<p class="note">
+Yahan a = first term, d = common difference aur n = number of terms.
+</p>
+
+<h3>📌 GP</h3>
+
+<p class="note">
+Geometric Progression mein consecutive terms ka ratio constant hota hai.
+</p>
+
+<div class="formula">
+aₙ = arⁿ⁻¹
 </div>
 
+<div class="formula">
+Sₙ = a(rⁿ − 1)/(r − 1), r ≠ 1
+</div>
+
+<div class="tip">
+<strong>💡 JEE Tip:</strong>
+AP aur GP ke questions mein first term, common difference/ratio
+aur number of terms ko identify karna important hai.
+</div>
+
+</div>
+
+
+<!-- Trigonometry -->
 
 <div class="card">
 
 <h2>3. Trigonometry</h2>
 
 <p class="note">
-Basic trigonometric identities ko regularly revise karna useful hai.
+Trigonometry mein angles aur triangles se related functions aur
+identities study ki jaati hain.
 </p>
+
+<h3>📌 Basic Identity</h3>
 
 <div class="formula">
 sin²θ + cos²θ = 1
@@ -173,16 +228,46 @@ sin²θ + cos²θ = 1
 1 + tan²θ = sec²θ
 </div>
 
+<div class="formula">
+1 + cot²θ = cosec²θ
 </div>
 
+<h3>📌 Basic Relations</h3>
+
+<div class="formula">
+tanθ = sinθ / cosθ
+</div>
+
+<div class="formula">
+cotθ = cosθ / sinθ
+</div>
+
+<p class="note">
+Important angles ke values aur standard identities ko regularly
+revise karna useful hai.
+</p>
+
+<div class="tip">
+<strong>💡 JEE Tip:</strong>
+Identity prove karte waqt ek side ko simplify karke doosri side
+ke equal lane ki practice karo.
+</div>
+
+</div>
+
+
+<!-- Differentiation -->
 
 <div class="card">
 
 <h2>4. Differentiation</h2>
 
 <p class="note">
-Differentiation function ke change ko describe karta hai.
+Differentiation function ke change ki rate ko describe karta hai.
+Calculus mein differentiation ka bahut important role hai.
 </p>
+
+<h3>📌 Basic Formulas</h3>
 
 <div class="formula">
 d/dx (xⁿ) = nxⁿ⁻¹
@@ -192,8 +277,41 @@ d/dx (xⁿ) = nxⁿ⁻¹
 d/dx (sin x) = cos x
 </div>
 
+<div class="formula">
+d/dx (cos x) = −sin x
 </div>
 
+<div class="formula">
+d/dx (eˣ) = eˣ
+</div>
+
+<div class="formula">
+d/dx (ln x) = 1/x
+</div>
+
+<h3>📌 Product Rule</h3>
+
+<div class="formula">
+d(uv)/dx = u(dv/dx) + v(du/dx)
+</div>
+
+<h3>📌 Chain Rule</h3>
+
+<p class="note">
+Composite functions ko differentiate karne ke liye chain rule
+ka use hota hai.
+</p>
+
+<div class="tip">
+<strong>💡 JEE Tip:</strong>
+Basic derivatives ko yaad rakhne ke saath product, quotient aur
+chain rule ki practice karo.
+</div>
+
+</div>
+
+
+<!-- Integration -->
 
 <div class="card">
 
@@ -201,7 +319,10 @@ d/dx (sin x) = cos x
 
 <p class="note">
 Integration differentiation ka reverse process hai.
+Indefinite integration mein constant of integration C add hota hai.
 </p>
+
+<h3>📌 Basic Formulas</h3>
 
 <div class="formula">
 ∫xⁿ dx = xⁿ⁺¹/(n+1) + C
@@ -211,9 +332,41 @@ Integration differentiation ka reverse process hai.
 ∫1 dx = x + C
 </div>
 
+<div class="formula">
+∫cos x dx = sin x + C
+</div>
+
+<div class="formula">
+∫sin x dx = −cos x + C
+</div>
+
+<div class="formula">
+∫eˣ dx = eˣ + C
+</div>
+
+<h3>📌 Important Point</h3>
+
+<p class="note">
+Integration questions mein substitution, integration by parts
+aur standard formulas ka use frequently hota hai.
+</p>
+
+<div class="tip">
+<strong>💡 JEE Tip:</strong>
+Integration ke formulas ko revise karne ke saath unke applications
+par bhi questions solve karo.
 </div>
 
 </div>
+
+
+</div>
+
+<footer>
+<strong>🎯 StudyGain</strong>
+<br>
+Free educational resources for students.
+</footer>
 
 </body>
-</html>
+  </html>
