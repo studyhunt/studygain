@@ -115,22 +115,22 @@ button{
 <h2>📐 Mathematics</h2>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="maths">
+<input type="checkbox" class="subject">
 Algebra
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="maths">
+<input type="checkbox" class="subject">
 Trigonometry
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="maths">
+<input type="checkbox" class="subject">
 Calculus
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="maths">
+<input type="checkbox" class="subject">
 Coordinate Geometry
 </label>
 
@@ -142,22 +142,22 @@ Coordinate Geometry
 <h2>⚡ Physics</h2>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="physics">
+<input type="checkbox" class="subject">
 Kinematics
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="physics">
+<input type="checkbox" class="subject">
 Laws of Motion
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="physics">
+<input type="checkbox" class="subject">
 Work & Energy
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="physics">
+<input type="checkbox" class="subject">
 Gravitation
 </label>
 
@@ -169,22 +169,22 @@ Gravitation
 <h2>🧪 Chemistry</h2>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="chemistry">
+<input type="checkbox" class="subject">
 Physical Chemistry
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="chemistry">
+<input type="checkbox" class="subject">
 Organic Chemistry
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="chemistry">
+<input type="checkbox" class="subject">
 Inorganic Chemistry
 </label>
 
 <label class="topic">
-<input type="checkbox" class="subject" value="chemistry">
+<input type="checkbox" class="subject">
 Atomic Structure
 </label>
 
@@ -214,8 +214,7 @@ Reset Progress
 
 <script>
 
-const boxes =
-document.querySelectorAll(".subject");
+const boxes = document.querySelectorAll(".subject");
 
 function updateProgress(){
 
@@ -231,28 +230,61 @@ completed++;
 
 let total = boxes.length;
 
-let percent =
-Math.round((completed / total) * 100);
+let percent = Math.round((completed / total) * 100);
 
-document.getElementById("progressFill")
-.style.width = percent + "%";
+document.getElementById("progressFill").style.width =
+percent + "%";
 
-document.getElementById("progressText")
-.innerHTML =
+document.getElementById("progressText").innerHTML =
 percent + "% Complete";
 
 }
 
+
 boxes.forEach(function(box){
 
-box.addEventListener("change", updateProgress);
+box.addEventListener("change", function(){
+
+updateProgress();
+
+localStorage.setItem(
+"studygainProgress",
+JSON.stringify(
+Array.from(boxes).map(function(item){
+return item.checked;
+})
+)
+);
 
 });
+
+});
+
 
 function resetProgress(){
 
 boxes.forEach(function(box){
 box.checked = false;
+});
+
+localStorage.removeItem("studygainProgress");
+
+updateProgress();
+
+}
+
+
+let savedProgress =
+JSON.parse(
+localStorage.getItem("studygainProgress")
+);
+
+if(savedProgress){
+
+boxes.forEach(function(box,index){
+
+box.checked = savedProgress[index] || false;
+
 });
 
 updateProgress();
