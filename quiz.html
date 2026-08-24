@@ -3,91 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudyGain | JEE Maths Quiz</title>
+<title>StudyGain | JEE Quiz</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:#f4f7ff;
+  background:#f5f7ff;
   color:#172033;
 }
 
 header{
-  background:linear-gradient(135deg,#2563eb,#06b6d4);
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
   color:white;
   text-align:center;
-  padding:28px 15px;
+  padding:32px 15px;
+}
+
+header h1{
+  margin:0 0 8px;
 }
 
 .container{
-  max-width:750px;
+  max-width:900px;
   margin:auto;
   padding:20px 15px;
 }
 
 .back{
   color:#2563eb;
-  text-decoration:none;
   font-weight:bold;
+  text-decoration:none;
 }
 
 .card{
   background:white;
+  padding:22px;
+  margin-top:18px;
+  border-radius:18px;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.subjects,
+.chapters{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
   margin-top:20px;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 4px 15px #0001;
-}
-
-.question{
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-
-label{
-  display:block;
-  background:#eef4ff;
-  padding:12px;
-  margin:8px 0;
-  border-radius:8px;
 }
 
 button{
   border:0;
-  background:#2563eb;
-  color:white;
-  padding:13px 20px;
-  border-radius:9px;
-  font-weight:bold;
+  cursor:pointer;
   font-size:16px;
-  margin-top:20px;
-}
-
-.result{
-  margin-top:10px;
   font-weight:bold;
 }
 
-#score{
-  text-align:center;
-  margin-top:20px;
-  padding:20px;
-  background:#111827;
+.subject-btn{
+  padding:22px 15px;
+  border-radius:15px;
   color:white;
+}
+
+.maths{
+  background:#2563eb;
+}
+
+.physics{
+  background:#0f766e;
+}
+
+.chemistry{
+  background:#7c3aed;
+}
+
+.chapter-btn{
+  padding:16px;
   border-radius:12px;
+  background:#eef2ff;
+  color:#172033;
+}
+
+.chapter-btn:hover{
+  background:#dbeafe;
+}
+
+.hidden{
   display:none;
 }
 
-footer{
-  margin-top:30px;
-  padding:22px;
-  background:#172033;
+.question{
+  margin-top:20px;
+  padding:20px;
+  background:#f9fafb;
+  border-radius:14px;
+}
+
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:13px;
+  margin-top:10px;
+  background:white;
+  border:2px solid #e5e7eb;
+  border-radius:10px;
+}
+
+.option:hover{
+  border-color:#2563eb;
+}
+
+.option.correct{
+  background:#dcfce7;
+  border-color:#16a34a;
+}
+
+.option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626;
+}
+
+.next{
+  margin-top:18px;
+  padding:12px 20px;
+  border-radius:9px;
+  background:#2563eb;
   color:white;
+}
+
+.score{
   text-align:center;
+  padding:25px;
+}
+
+.score h2{
+  color:#2563eb;
+}
+
+.small{
+  color:#666;
+  font-size:14px;
 }
 </style>
 </head>
@@ -95,140 +155,601 @@ footer{
 <body>
 
 <header>
-<h1>📝 StudyGain Quiz</h1>
-<p>JEE Maths Practice</p>
+  <h1>📝 StudyGain JEE Quiz</h1>
+  <p>Subject aur chapter choose karke practice karo</p>
 </header>
 
 <div class="container">
 
+<p>
 <a class="back" href="index.html">← Back to StudyGain</a>
+</p>
 
-<div class="card">
-<div class="question">
-1. If x² − 5x + 6 = 0, the roots are:
-</div>
+<!-- SUBJECT SECTION -->
 
-<label><input type="radio" name="q1" value="A"> A) 1 and 6</label>
-<label><input type="radio" name="q1" value="B"> B) 2 and 3</label>
-<label><input type="radio" name="q1" value="C"> C) −2 and −3</label>
-<label><input type="radio" name="q1" value="D"> D) 3 and 4</label>
+<div id="subjectSection" class="card">
 
-<div id="r1" class="result"></div>
-</div>
+<h2>🎯 Subject Select Karo</h2>
 
+<div class="subjects">
 
-<div class="card">
-<div class="question">
-2. What is sin²θ + cos²θ?
-</div>
+<button class="subject-btn maths" onclick="showChapters('maths')">
+📐 Maths
+</button>
 
-<label><input type="radio" name="q2" value="A"> A) 0</label>
-<label><input type="radio" name="q2" value="B"> B) 1</label>
-<label><input type="radio" name="q2" value="C"> C) 2</label>
-<label><input type="radio" name="q2" value="D"> D) −1</label>
+<button class="subject-btn physics" onclick="showChapters('physics')">
+⚡ Physics
+</button>
 
-<div id="r2" class="result"></div>
-</div>
-
-
-<div class="card">
-<div class="question">
-3. What is the derivative of x²?
-</div>
-
-<label><input type="radio" name="q3" value="A"> A) x</label>
-<label><input type="radio" name="q3" value="B"> B) 2x</label>
-<label><input type="radio" name="q3" value="C"> C) x²</label>
-<label><input type="radio" name="q3" value="D"> D) 2</label>
-
-<div id="r3" class="result"></div>
-</div>
-
-
-<div class="card">
-<div class="question">
-4. If a = 2 and b = 3, then a² + b² = ?
-</div>
-
-<label><input type="radio" name="q4" value="A"> A) 5</label>
-<label><input type="radio" name="q4" value="B"> B) 10</label>
-<label><input type="radio" name="q4" value="C"> C) 13</label>
-<label><input type="radio" name="q4" value="D"> D) 12</label>
-
-<div id="r4" class="result"></div>
-</div>
-
-
-<div class="card">
-<div class="question">
-5. What is ∫1 dx?
-</div>
-
-<label><input type="radio" name="q5" value="A"> A) 1</label>
-<label><input type="radio" name="q5" value="B"> B) x + C</label>
-<label><input type="radio" name="q5" value="C"> C) x² + C</label>
-<label><input type="radio" name="q5" value="D"> D) 0</label>
-
-<div id="r5" class="result"></div>
-</div>
-
-
-<button onclick="checkQuiz()">Check Answers</button>
-
-<div id="score"></div>
+<button class="subject-btn chemistry" onclick="showChapters('chemistry')">
+🧪 Chemistry
+</button>
 
 </div>
 
-<footer>
-<strong>🎯 StudyGain</strong><br>
-Free JEE learning resources.
-</footer>
+</div>
+
+
+<!-- CHAPTER SECTION -->
+
+<div id="chapterSection" class="card hidden">
+
+<h2 id="chapterTitle">Chapters</h2>
+
+<p class="small">
+Ek chapter select karo.
+</p>
+
+<div id="chapterButtons" class="chapters"></div>
+
+</div>
+
+
+<!-- QUIZ SECTION -->
+
+<div id="quizSection" class="card hidden">
+
+<div id="quizHeader"></div>
+
+<div id="questionBox"></div>
+
+<button id="nextButton" class="next hidden" onclick="nextQuestion()">
+Next Question →
+</button>
+
+</div>
+
+
+<!-- SCORE SECTION -->
+
+<div id="scoreSection" class="card hidden">
+
+<div class="score">
+
+<h2>🎉 Quiz Complete!</h2>
+
+<p id="scoreText"></p>
+
+<button class="next" onclick="restartQuiz()">
+Try Again
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 
 <script>
 
-function checkQuiz(){
+const chapters = {
 
-let score=0;
+maths: [
+"Quadratic Equations",
+"Sequence & Series",
+"Trigonometry",
+"Differentiation",
+"Integration"
+],
 
-let answers={
-q1:"B",
-q2:"B",
-q3:"B",
-q4:"C",
-q5:"B"
+physics: [
+"Kinematics",
+"Laws of Motion",
+"Work, Energy & Power",
+"Gravitation",
+"Current Electricity"
+],
+
+chemistry: [
+"Mole Concept",
+"Atomic Structure",
+"Chemical Bonding",
+"Thermodynamics",
+"Organic Chemistry Basics"
+]
+
 };
 
-for(let i=1;i<=5;i++){
 
-let selected=document.querySelector(
-'input[name="q'+i+'"]:checked'
-);
+const questions = {
 
-let result=document.getElementById("r"+i);
+"maths|Quadratic Equations":[
 
-if(selected && selected.value===answers["q"+i]){
+{
+q:"x² − 5x + 6 = 0 ke roots kya hain?",
+options:["1 aur 6","2 aur 3","−2 aur −3","3 aur 4"],
+answer:1
+},
+
+{
+q:"x² + 4x + 4 = 0 ka discriminant kya hai?",
+options:["16","8","0","−16"],
+answer:2
+}
+
+],
+
+
+"maths|Sequence & Series":[
+
+{
+q:"AP: 2, 5, 8, 11 mein common difference kya hai?",
+options:["2","3","4","5"],
+answer:1
+},
+
+{
+q:"AP ka first term 3 aur common difference 2 hai. Third term kya hogi?",
+options:["5","6","7","8"],
+answer:2
+}
+
+],
+
+
+"maths|Trigonometry":[
+
+{
+q:"sin²θ + cos²θ kis ke equal hai?",
+options:["0","1","tan θ","sec θ"],
+answer:1
+},
+
+{
+q:"1 + tan²θ kis ke equal hai?",
+options:["sin²θ","cos²θ","sec²θ","cosec²θ"],
+answer:2
+}
+
+],
+
+
+"maths|Differentiation":[
+
+{
+q:"d/dx (x³) kya hai?",
+options:["x²","2x²","3x²","3x"],
+answer:2
+},
+
+{
+q:"d/dx (sin x) kya hai?",
+options:["−sin x","cos x","tan x","−cos x"],
+answer:1
+}
+
+],
+
+
+"maths|Integration":[
+
+{
+q:"∫x² dx kya hai?",
+options:["x²/2 + C","x³/3 + C","2x + C","x³ + C"],
+answer:1
+},
+
+{
+q:"∫cos x dx kya hai?",
+options:["−sin x + C","cos x + C","sin x + C","tan x + C"],
+answer:2
+}
+
+],
+
+
+"physics|Kinematics":[
+
+{
+q:"Rest se start karne wale object ki acceleration 2 m/s² hai. 3 s baad velocity kya hogi?",
+options:["4 m/s","5 m/s","6 m/s","8 m/s"],
+answer:2
+},
+
+{
+q:"u = 0, a = 2 m/s² aur t = 4 s ho, displacement kya hoga?",
+options:["8 m","12 m","16 m","20 m"],
+answer:2
+}
+
+],
+
+
+"physics|Laws of Motion":[
+
+{
+q:"5 kg mass par 10 N force lagaya gaya. Acceleration kya hogi?",
+options:["0.5 m/s²","2 m/s²","5 m/s²","50 m/s²"],
+answer:1
+},
+
+{
+q:"4 kg object 3 m/s velocity se move kar raha hai. Momentum kya hoga?",
+options:["7 kg·m/s","12 kg·m/s","15 kg·m/s","24 kg·m/s"],
+answer:1
+}
+
+],
+
+
+"physics|Work, Energy & Power":[
+
+{
+q:"2 kg object ki velocity 3 m/s hai. Kinetic energy kya hogi?",
+options:["3 J","6 J","9 J","18 J"],
+answer:2
+},
+
+{
+q:"100 J work 5 seconds mein kiya gaya. Power kya hogi?",
+options:["5 W","20 W","50 W","500 W"],
+answer:1
+}
+
+],
+
+
+"physics|Gravitation":[
+
+{
+q:"Earth ke surface ke near g ka approximate value kya hai?",
+options:["3.8 m/s²","9.8 m/s²","19.6 m/s²","98 m/s²"],
+answer:1
+},
+
+{
+q:"Distance double hone par gravitational force kya ho jata hai?",
+options:["Double","Half","One-fourth","Four times"],
+answer:2
+}
+
+],
+
+
+"physics|Current Electricity":[
+
+{
+q:"Resistance 5 Ω aur current 2 A hai. Voltage kya hoga?",
+options:["2.5 V","7 V","10 V","25 V"],
+answer:2
+},
+
+{
+q:"Voltage 12 V aur current 2 A hai. Power kya hogi?",
+options:["6 W","14 W","24 W","48 W"],
+answer:2
+}
+
+],
+
+
+"chemistry|Mole Concept":[
+
+{
+q:"18 g H₂O approximately kitne moles ke equal hai?",
+options:["0.5 mol","1 mol","2 mol","18 mol"],
+answer:1
+},
+
+{
+q:"1 mole mein approximately kitne particles hote hain?",
+options:["6.022 × 10²³","6.022 × 10²²","3.011 × 10²³","9.8 × 10²³"],
+answer:0
+}
+
+],
+
+
+"chemistry|Atomic Structure":[
+
+{
+q:"Neutral atom ka atomic number 8 hai. Electrons kitne honge?",
+options:["4","6","8","16"],
+answer:2
+},
+
+{
+q:"11 protons aur 12 neutrons wale atom ka mass number kya hoga?",
+options:["11","12","22","23"],
+answer:3
+}
+
+],
+
+
+"chemistry|Chemical Bonding":[
+
+{
+q:"Ionic bonding mein generally kya hota hai?",
+options:[
+"Electrons ka transfer",
+"Electrons ka sharing",
+"Neutrons ka transfer",
+"Protons ka sharing"
+],
+answer:0
+},
+
+{
+q:"Covalent bond mein atoms generally kya karte hain?",
+options:[
+"Protons transfer karte hain",
+"Electrons share karte hain",
+"Neutrons share karte hain",
+"Nuclei transfer karte hain"
+],
+answer:1
+}
+
+],
+
+
+"chemistry|Thermodynamics":[
+
+{
+q:"First law of thermodynamics ka common expression kya hai?",
+options:[
+"ΔU = q + w",
+"ΔU = q − w",
+"ΔU = qw",
+"ΔU = q/w"
+],
+answer:0
+},
+
+{
+q:"Exothermic process mein heat generally kya hoti hai?",
+options:[
+"Absorb hoti hai",
+"Release hoti hai",
+"Destroy hoti hai",
+"Zero hoti hai"
+],
+answer:1
+}
+
+],
+
+
+"chemistry|Organic Chemistry Basics":[
+
+{
+q:"−OH functional group kis class mein common hai?",
+options:[
+"Alcohol",
+"Aldehyde",
+"Amine",
+"Carboxylic acid"
+],
+answer:0
+},
+
+{
+q:"−COOH kis functional group ko represent karta hai?",
+options:[
+"Alcohol",
+"Ether",
+"Carboxylic acid",
+"Amine"
+],
+answer:2
+}
+
+]
+
+};
+
+
+let currentQuestions = [];
+let currentQuestion = 0;
+let score = 0;
+let selectedSubject = "";
+let selectedChapter = "";
+
+
+function showChapters(subject){
+
+selectedSubject = subject;
+
+document.getElementById("subjectSection").classList.add("hidden");
+
+document.getElementById("chapterSection").classList.remove("hidden");
+
+let title = "";
+
+if(subject === "maths"){
+title = "📐 Maths Chapters";
+}
+
+if(subject === "physics"){
+title = "⚡ Physics Chapters";
+}
+
+if(subject === "chemistry"){
+title = "🧪 Chemistry Chapters";
+}
+
+document.getElementById("chapterTitle").textContent = title;
+
+const box = document.getElementById("chapterButtons");
+
+box.innerHTML = "";
+
+chapters[subject].forEach(function(chapter){
+
+const button = document.createElement("button");
+
+button.className = "chapter-btn";
+
+button.textContent = chapter;
+
+button.onclick = function(){
+startQuiz(subject,chapter);
+};
+
+box.appendChild(button);
+
+});
+
+}
+
+
+function startQuiz(subject,chapter){
+
+selectedSubject = subject;
+selectedChapter = chapter;
+
+const key = subject + "|" + chapter;
+
+currentQuestions = questions[key] || [];
+
+currentQuestion = 0;
+score = 0;
+
+document.getElementById("chapterSection").classList.add("hidden");
+
+document.getElementById("quizSection").classList.remove("hidden");
+
+showQuestion();
+
+}
+
+
+function showQuestion(){
+
+const data = currentQuestions[currentQuestion];
+
+if(!data){
+showScore();
+return;
+}
+
+document.getElementById("quizHeader").innerHTML =
+"<h2>" +
+selectedChapter +
+"</h2>" +
+"<p>Question " +
+(currentQuestion + 1) +
+" of " +
+currentQuestions.length +
+"</p>";
+
+let html = "<div class='question'>";
+
+html += "<h3>" + data.q + "</h3>";
+
+data.options.forEach(function(option,index){
+
+html +=
+"<button class='option' onclick='checkAnswer(" +
+index +
+",this)'>" +
+option +
+"</button>";
+
+});
+
+html += "</div>";
+
+document.getElementById("questionBox").innerHTML = html;
+
+document.getElementById("nextButton").classList.add("hidden");
+
+}
+
+
+function checkAnswer(index,button){
+
+const data = currentQuestions[currentQuestion];
+
+const options = document.querySelectorAll(".option");
+
+options.forEach(function(option){
+option.disabled = true;
+});
+
+if(index === data.answer){
+
+button.classList.add("correct");
+
 score++;
-result.innerHTML="✅ Correct!";
-result.style.color="green";
+
 }else{
-result.innerHTML="❌ Try again. Correct answer: "+
-answers["q"+i];
-result.style.color="red";
+
+button.classList.add("wrong");
+
+options[data.answer].classList.add("correct");
+
+}
+
+document.getElementById("nextButton").classList.remove("hidden");
+
+}
+
+
+function nextQuestion(){
+
+currentQuestion++;
+
+if(currentQuestion < currentQuestions.length){
+
+showQuestion();
+
+}else{
+
+showScore();
+
 }
 
 }
 
-let scoreBox=document.getElementById("score");
 
-scoreBox.style.display="block";
+function showScore(){
 
-scoreBox.innerHTML=
-"🎯 Your Score: "+score+" / 5";
+document.getElementById("quizSection").classList.add("hidden");
+
+document.getElementById("scoreSection").classList.remove("hidden");
+
+document.getElementById("scoreText").innerHTML =
+"You scored <strong>" +
+score +
+"</strong> out of <strong>" +
+currentQuestions.length +
+"</strong>.";
+
+}
+
+
+function restartQuiz(){
+
+document.getElementById("scoreSection").classList.add("hidden");
+
+document.getElementById("subjectSection").classList.remove("hidden");
 
 }
 
 </script>
 
 </body>
-</html>
+  </html>
