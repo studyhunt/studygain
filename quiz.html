@@ -6,9 +6,7 @@
 <title>StudyGain | JEE Quiz</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -24,9 +22,7 @@ header{
   padding:32px 15px;
 }
 
-header h1{
-  margin:0 0 8px;
-}
+header h1{margin:0 0 8px}
 
 .container{
   max-width:900px;
@@ -48,8 +44,7 @@ header h1{
   box-shadow:0 5px 18px rgba(0,0,0,.08);
 }
 
-.subjects,
-.chapters{
+.subjects,.chapters{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:15px;
@@ -69,17 +64,9 @@ button{
   color:white;
 }
 
-.maths{
-  background:#2563eb;
-}
-
-.physics{
-  background:#0f766e;
-}
-
-.chemistry{
-  background:#7c3aed;
-}
+.maths{background:#2563eb}
+.physics{background:#0f766e}
+.chemistry{background:#7c3aed}
 
 .chapter-btn{
   padding:16px;
@@ -88,13 +75,7 @@ button{
   color:#172033;
 }
 
-.chapter-btn:hover{
-  background:#dbeafe;
-}
-
-.hidden{
-  display:none;
-}
+.hidden{display:none}
 
 .question{
   margin-top:20px;
@@ -112,10 +93,6 @@ button{
   background:white;
   border:2px solid #e5e7eb;
   border-radius:10px;
-}
-
-.option:hover{
-  border-color:#2563eb;
 }
 
 .option.correct{
@@ -141,10 +118,6 @@ button{
   padding:25px;
 }
 
-.score h2{
-  color:#2563eb;
-}
-
 .small{
   color:#666;
   font-size:14px;
@@ -155,8 +128,8 @@ button{
 <body>
 
 <header>
-  <h1>📝 StudyGain JEE Quiz</h1>
-  <p>Subject aur chapter choose karke practice karo</p>
+<h1>📝 StudyGain JEE Quiz</h1>
+<p>Subject aur chapter choose karke practice karo</p>
 </header>
 
 <div class="container">
@@ -165,10 +138,7 @@ button{
 <a class="back" href="index.html">← Back to StudyGain</a>
 </p>
 
-<!-- SUBJECT SECTION -->
-
 <div id="subjectSection" class="card">
-
 <h2>🎯 Subject Select Karo</h2>
 
 <div class="subjects">
@@ -186,26 +156,17 @@ button{
 </button>
 
 </div>
-
 </div>
-
-
-<!-- CHAPTER SECTION -->
 
 <div id="chapterSection" class="card hidden">
 
 <h2 id="chapterTitle">Chapters</h2>
 
-<p class="small">
-Ek chapter select karo.
-</p>
+<p class="small">Ek chapter select karo.</p>
 
 <div id="chapterButtons" class="chapters"></div>
 
 </div>
-
-
-<!-- QUIZ SECTION -->
 
 <div id="quizSection" class="card hidden">
 
@@ -218,9 +179,6 @@ Next Question →
 </button>
 
 </div>
-
-
-<!-- SCORE SECTION -->
 
 <div id="scoreSection" class="card hidden">
 
@@ -235,17 +193,15 @@ Try Again
 </button>
 
 </div>
-
 </div>
 
 </div>
-
 
 <script>
 
 const chapters = {
 
-maths: [
+maths:[
 "Quadratic Equations",
 "Sequence & Series",
 "Trigonometry",
@@ -253,7 +209,7 @@ maths: [
 "Integration"
 ],
 
-physics: [
+physics:[
 "Kinematics",
 "Laws of Motion",
 "Work, Energy & Power",
@@ -261,7 +217,7 @@ physics: [
 "Current Electricity"
 ],
 
-chemistry: [
+chemistry:[
 "Mole Concept",
 "Atomic Structure",
 "Chemical Bonding",
@@ -271,340 +227,459 @@ chemistry: [
 
 };
 
-
 const questions = {
 
 "maths|Quadratic Equations":[
 
 {
-q:"x² − 5x + 6 = 0 ke roots kya hain?",
-options:["1 aur 6","2 aur 3","−2 aur −3","3 aur 4"],
+q:"x² − 5x + 6 = 0 के roots क्या हैं?",
+options:["1 और 6","2 और 3","−2 और −3","3 और 4"],
 answer:1
 },
 
 {
-q:"x² + 4x + 4 = 0 ka discriminant kya hai?",
-options:["16","8","0","−16"],
+q:"2x² − 7x + 3 = 0 का discriminant कितना है?",
+options:["25","13","37","1"],
+answer:0
+},
+
+{
+q:"दो distinct real roots के लिए discriminant की condition क्या है?",
+options:["D < 0","D = 0","D > 0","D = 1"],
 answer:2
+},
+
+{
+q:"x² + 6x + 9 = 0 के roots की प्रकृति क्या है?",
+options:["दो distinct real roots","दो equal real roots","दो non-real roots","कोई root नहीं"],
+answer:1
+},
+
+{
+q:"x² − 8x + k = 0 के roots equal हैं। k का मान क्या है?",
+options:["8","12","16","32"],
+answer:2
+},
+
+{
+q:"α और β, x² − 7x + 10 = 0 के roots हैं। α + β कितना है?",
+options:["−7","5","7","10"],
+answer:2
+},
+
+{
+q:"α और β, 2x² − 5x + 3 = 0 के roots हैं। αβ कितना है?",
+options:["−3/2","3/2","5/2","2/3"],
+answer:1
+},
+
+{
+q:"x² − 9x + 20 = 0 के roots का absolute difference कितना है?",
+options:["1","2","4","5"],
+answer:0
+},
+
+{
+q:"x² + 2x + 5 = 0 के roots कैसे होंगे?",
+options:["दो distinct real roots","दो equal real roots","दो distinct non-real roots","एक real और एक non-real"],
+answer:2
+},
+
+{
+q:"Roots 3 और −4 हैं तथा leading coefficient 1 है। Equation कौन-सी है?",
+options:["x² + x − 12 = 0","x² − x − 12 = 0","x² + 7x + 12 = 0","x² − 7x + 12 = 0"],
+answer:0
+},
+
+{
+q:"3x² − 12x + 12 = 0 के roots क्या हैं?",
+options:["1 और 4","2 और 2","−2 और −2","3 और 4"],
+answer:1
+},
+
+{
+q:"α और β, x² − 4x + 1 = 0 के roots हैं। 1/α + 1/β कितना है?",
+options:["1","2","4","−4"],
+answer:2
+},
+
+{
+q:"α और β, x² − 6x + 2 = 0 के roots हैं। α² + β² कितना है?",
+options:["28","30","32","36"],
+answer:2
+},
+
+{
+q:"x² − 3x + 2 = 0 के roots का product क्या है?",
+options:["−3","2","3","−2"],
+answer:1
+},
+
+{
+q:"x² + kx + 9 = 0 के roots real और equal हैं। k के possible values क्या हैं?",
+options:["k = 3","k = 6","k = ±6","k = 9"],
+answer:2
+},
+
+{
+q:"x² − 2x + k = 0 के दोनों roots positive हैं। k की सही condition क्या है?",
+options:["k < 0","k = 0","0 < k ≤ 1","k > 1"],
+answer:2
+},
+
+{
+q:"x² + 4x + 7 = 0 के roots का sum क्या है?",
+options:["−7","−4","4","7"],
+answer:1
+},
+
+{
+q:"x² − 10x + 25 = 0 का minimum value किस x पर प्राप्त होता है?",
+options:["x = 2","x = 4","x = 5","x = 10"],
+answer:2
+},
+
+{
+q:"α और β, x² + 3x − 4 = 0 के roots हैं। αβ कितना है?",
+options:["−4","3","4","−3"],
+answer:0
+},
+
+{
+q:"यदि D < 0 है, तो real coefficients वाली quadratic equation के roots कैसे होंगे?",
+options:["दो distinct real","दो equal real","दो distinct non-real","एक real और एक non-real"],
+answer:2
+},
+
+{
+q:"x² − 4x + 3 = 0 के roots क्या हैं?",
+options:["1 और 3","−1 और −3","2 और 3","1 और 4"],
+answer:0
+},
+
+{
+q:"x² + 5x + 6 = 0 के roots का sum क्या है?",
+options:["6","5","−5","−6"],
+answer:2
+},
+
+{
+q:"x² + 5x + 6 = 0 के roots का product क्या है?",
+options:["−6","5","6","−5"],
+answer:2
+},
+
+{
+q:"4x² − 4x + 1 = 0 के roots की प्रकृति क्या है?",
+options:["दो distinct real","दो equal real","दो non-real","कोई root नहीं"],
+answer:1
+},
+
+{
+q:"x² − 2x − 8 = 0 के positive root का मान क्या है?",
+options:["−4","−2","2","4"],
+answer:3
+},
+
+{
+q:"x² − 6x + 8 = 0 के roots क्या हैं?",
+options:["1, 8","2, 4","−2, −4","3, 5"],
+answer:1
+},
+
+{
+q:"यदि α और β, x² − 5x + 6 = 0 के roots हैं, तो α²β + αβ² कितना है?",
+options:["6","11","30","36"],
+answer:2
+},
+
+{
+q:"यदि α और β, x² − 5x + 6 = 0 के roots हैं, तो α/β + β/α कितना है?",
+options:["5/3","13/6","25/6","6/5"],
+answer:1
+},
+
+{
+q:"x² − 2x + 2 = 0 के roots का real part क्या है?",
+options:["−1","0","1","2"],
+answer:2
+},
+
+{
+q:"x² + 2x + 2 = 0 के roots क्या हैं?",
+options:["1 ± i","−1 ± i","2 ± i","−2 ± i"],
+answer:1
+},
+
+{
+q:"यदि roots 2 और 5 हैं, तो roots का sum और product क्या होगा?",
+options:["7 और 10","10 और 7","−7 और 10","7 और −10"],
+answer:0
+},
+
+{
+q:"जिस quadratic equation के roots 1 और −2 हैं, वह कौन-सी है?",
+options:["x² + x − 2 = 0","x² − x − 2 = 0","x² + 3x + 2 = 0","x² − 3x + 2 = 0"],
+answer:0
+},
+
+{
+q:"x² − 7x + 12 = 0 का छोटा root क्या है?",
+options:["2","3","4","6"],
+answer:1
+},
+
+{
+q:"x² + 7x + 12 = 0 का बड़ा root क्या है?",
+options:["−6","−4","−3","−2"],
+answer:2
+},
+
+{
+q:"x² − 4x + k = 0 के equal roots होने के लिए k क्या होगा?",
+options:["2","3","4","8"],
+answer:2
+},
+
+{
+q:"2x² + 3x − 2 = 0 के roots का product क्या है?",
+options:["−2","−1","1","2"],
+answer:0
+},
+
+{
+q:"3x² − 5x + 2 = 0 के roots का sum क्या है?",
+options:["−5/3","5/3","2/3","3/5"],
+answer:1
+},
+
+{
+q:"यदि α और β, x² − 3x + 1 = 0 के roots हैं, तो α² + β² कितना है?",
+options:["5","7","9","11"],
+answer:0
+},
+
+{
+q:"x² − 6x + 9 = 0 का repeated root क्या है?",
+options:["−3","0","3","9"],
+answer:2
+},
+
+{
+q:"x² + 8x + 16 = 0 का repeated root क्या है?",
+options:["−8","−4","4","8"],
+answer:1
+},
+
+{
+q:"यदि quadratic equation के roots equal हैं, तो उसका discriminant क्या होगा?",
+options:["Negative","Zero","Positive","Infinite"],
+answer:1
+},
+
+{
+q:"x² − x − 12 = 0 के roots क्या हैं?",
+options:["3 और −4","4 और −3","2 और −6","−2 और 6"],
+answer:1
+},
+
+{
+q:"x² + x − 12 = 0 के roots क्या हैं?",
+options:["3 और −4","4 और −3","2 और −6","−2 और 6"],
+answer:0
+},
+
+{
+q:"x² − 10x + 21 = 0 के roots का product क्या है?",
+options:["10","21","−10","−21"],
+answer:1
+},
+
+{
+q:"2x² − 8x + 6 = 0 के roots क्या हैं?",
+options:["1 और 3","−1 और −3","2 और 3","1 और 6"],
+answer:0
+},
+
+{
+q:"x² − 4x + 5 = 0 के roots की प्रकृति क्या है?",
+options:["दो distinct real","दो equal real","दो distinct non-real","एक real और एक non-real"],
+answer:2
+},
+
+{
+q:"यदि α और β, x² − 4x + 2 = 0 के roots हैं, तो αβ(α + β) कितना है?",
+options:["4","6","8","10"],
+answer:2
+},
+
+{
+q:"x² − 5x + 4 = 0 के roots का difference कितना है?",
+options:["1","2","3","4"],
+answer:2
+},
+
+{
+q:"x² + 3x + 2 = 0 का smaller root क्या है?",
+options:["−1","−2","1","2"],
+answer:1
+},
+
+{
+q:"यदि x² − 2x + 1 = 0 है, तो x का unique value क्या है?",
+options:["−1","0","1","2"],
+answer:2
+
 }
 
 ],
-
 
 "maths|Sequence & Series":[
-
 {
-q:"AP: 2, 5, 8, 11 mein common difference kya hai?",
+q:"AP 2,5,8,11 का common difference क्या है?",
 options:["2","3","4","5"],
 answer:1
-},
-
-{
-q:"AP ka first term 3 aur common difference 2 hai. Third term kya hogi?",
-options:["5","6","7","8"],
-answer:2
 }
-
 ],
-
 
 "maths|Trigonometry":[
-
 {
-q:"sin²θ + cos²θ kis ke equal hai?",
+q:"sin²θ + cos²θ किसके बराबर है?",
 options:["0","1","tan θ","sec θ"],
 answer:1
-},
-
-{
-q:"1 + tan²θ kis ke equal hai?",
-options:["sin²θ","cos²θ","sec²θ","cosec²θ"],
-answer:2
 }
-
 ],
-
 
 "maths|Differentiation":[
-
 {
-q:"d/dx (x³) kya hai?",
+q:"d/dx(x³) क्या है?",
 options:["x²","2x²","3x²","3x"],
 answer:2
-},
-
-{
-q:"d/dx (sin x) kya hai?",
-options:["−sin x","cos x","tan x","−cos x"],
-answer:1
 }
-
 ],
-
 
 "maths|Integration":[
-
 {
-q:"∫x² dx kya hai?",
+q:"∫x² dx क्या है?",
 options:["x²/2 + C","x³/3 + C","2x + C","x³ + C"],
 answer:1
-},
-
-{
-q:"∫cos x dx kya hai?",
-options:["−sin x + C","cos x + C","sin x + C","tan x + C"],
-answer:2
 }
-
 ],
-
 
 "physics|Kinematics":[
-
 {
-q:"Rest se start karne wale object ki acceleration 2 m/s² hai. 3 s baad velocity kya hogi?",
-options:["4 m/s","5 m/s","6 m/s","8 m/s"],
-answer:2
-},
-
-{
-q:"u = 0, a = 2 m/s² aur t = 4 s ho, displacement kya hoga?",
-options:["8 m","12 m","16 m","20 m"],
+q:"u = 0, a = 2 m/s² और t = 3 s हो तो velocity क्या होगी?",
+options:["3 m/s","4 m/s","6 m/s","9 m/s"],
 answer:2
 }
-
 ],
-
 
 "physics|Laws of Motion":[
-
 {
-q:"5 kg mass par 10 N force lagaya gaya. Acceleration kya hogi?",
+q:"5 kg mass पर 10 N force लगे तो acceleration क्या होगी?",
 options:["0.5 m/s²","2 m/s²","5 m/s²","50 m/s²"],
 answer:1
-},
-
-{
-q:"4 kg object 3 m/s velocity se move kar raha hai. Momentum kya hoga?",
-options:["7 kg·m/s","12 kg·m/s","15 kg·m/s","24 kg·m/s"],
-answer:1
 }
-
 ],
-
 
 "physics|Work, Energy & Power":[
-
 {
-q:"2 kg object ki velocity 3 m/s hai. Kinetic energy kya hogi?",
+q:"2 kg object की velocity 3 m/s है। Kinetic energy क्या है?",
 options:["3 J","6 J","9 J","18 J"],
 answer:2
-},
-
-{
-q:"100 J work 5 seconds mein kiya gaya. Power kya hogi?",
-options:["5 W","20 W","50 W","500 W"],
-answer:1
 }
-
 ],
-
 
 "physics|Gravitation":[
-
 {
-q:"Earth ke surface ke near g ka approximate value kya hai?",
+q:"Earth के surface के पास g का approximate value क्या है?",
 options:["3.8 m/s²","9.8 m/s²","19.6 m/s²","98 m/s²"],
 answer:1
-},
-
-{
-q:"Distance double hone par gravitational force kya ho jata hai?",
-options:["Double","Half","One-fourth","Four times"],
-answer:2
 }
-
 ],
-
 
 "physics|Current Electricity":[
-
 {
-q:"Resistance 5 Ω aur current 2 A hai. Voltage kya hoga?",
+q:"Resistance 5 Ω और current 2 A है। Voltage क्या होगा?",
 options:["2.5 V","7 V","10 V","25 V"],
 answer:2
-},
-
-{
-q:"Voltage 12 V aur current 2 A hai. Power kya hogi?",
-options:["6 W","14 W","24 W","48 W"],
-answer:2
 }
-
 ],
-
 
 "chemistry|Mole Concept":[
-
 {
-q:"18 g H₂O approximately kitne moles ke equal hai?",
+q:"18 g H₂O approximately कितने moles हैं?",
 options:["0.5 mol","1 mol","2 mol","18 mol"],
 answer:1
-},
-
-{
-q:"1 mole mein approximately kitne particles hote hain?",
-options:["6.022 × 10²³","6.022 × 10²²","3.011 × 10²³","9.8 × 10²³"],
-answer:0
 }
-
 ],
-
 
 "chemistry|Atomic Structure":[
-
 {
-q:"Neutral atom ka atomic number 8 hai. Electrons kitne honge?",
+q:"Neutral atom का atomic number 8 है। Electrons कितने होंगे?",
 options:["4","6","8","16"],
 answer:2
-},
-
-{
-q:"11 protons aur 12 neutrons wale atom ka mass number kya hoga?",
-options:["11","12","22","23"],
-answer:3
 }
-
 ],
-
 
 "chemistry|Chemical Bonding":[
-
 {
-q:"Ionic bonding mein generally kya hota hai?",
-options:[
-"Electrons ka transfer",
-"Electrons ka sharing",
-"Neutrons ka transfer",
-"Protons ka sharing"
-],
+q:"Ionic bonding में generally क्या होता है?",
+options:["Electrons का transfer","Electrons का sharing","Neutrons का transfer","Protons का sharing"],
 answer:0
-},
-
-{
-q:"Covalent bond mein atoms generally kya karte hain?",
-options:[
-"Protons transfer karte hain",
-"Electrons share karte hain",
-"Neutrons share karte hain",
-"Nuclei transfer karte hain"
-],
-answer:1
 }
-
 ],
-
 
 "chemistry|Thermodynamics":[
-
 {
-q:"First law of thermodynamics ka common expression kya hai?",
-options:[
-"ΔU = q + w",
-"ΔU = q − w",
-"ΔU = qw",
-"ΔU = q/w"
-],
+q:"First law of thermodynamics का common expression क्या है?",
+options:["ΔU = q + w","ΔU = q − w","ΔU = qw","ΔU = q/w"],
 answer:0
-},
-
-{
-q:"Exothermic process mein heat generally kya hoti hai?",
-options:[
-"Absorb hoti hai",
-"Release hoti hai",
-"Destroy hoti hai",
-"Zero hoti hai"
-],
-answer:1
 }
-
 ],
-
 
 "chemistry|Organic Chemistry Basics":[
-
 {
-q:"−OH functional group kis class mein common hai?",
-options:[
-"Alcohol",
-"Aldehyde",
-"Amine",
-"Carboxylic acid"
-],
+q:"−OH functional group किस class में common है?",
+options:["Alcohol","Aldehyde","Amine","Carboxylic acid"],
 answer:0
-},
-
-{
-q:"−COOH kis functional group ko represent karta hai?",
-options:[
-"Alcohol",
-"Ether",
-"Carboxylic acid",
-"Amine"
-],
-answer:2
 }
-
 ]
 
 };
 
-
-let currentQuestions = [];
-let currentQuestion = 0;
-let score = 0;
-let selectedSubject = "";
-let selectedChapter = "";
-
+let currentQuestions=[];
+let currentQuestion=0;
+let score=0;
+let selectedSubject="";
+let selectedChapter="";
 
 function showChapters(subject){
 
-selectedSubject = subject;
+selectedSubject=subject;
 
 document.getElementById("subjectSection").classList.add("hidden");
-
 document.getElementById("chapterSection").classList.remove("hidden");
 
-let title = "";
+let title="";
 
-if(subject === "maths"){
-title = "📐 Maths Chapters";
-}
+if(subject==="maths") title="📐 Maths Chapters";
+if(subject==="physics") title="⚡ Physics Chapters";
+if(subject==="chemistry") title="🧪 Chemistry Chapters";
 
-if(subject === "physics"){
-title = "⚡ Physics Chapters";
-}
+document.getElementById("chapterTitle").textContent=title;
 
-if(subject === "chemistry"){
-title = "🧪 Chemistry Chapters";
-}
-
-document.getElementById("chapterTitle").textContent = title;
-
-const box = document.getElementById("chapterButtons");
-
-box.innerHTML = "";
+const box=document.getElementById("chapterButtons");
+box.innerHTML="";
 
 chapters[subject].forEach(function(chapter){
 
-const button = document.createElement("button");
+const button=document.createElement("button");
 
-button.className = "chapter-btn";
+button.className="chapter-btn";
+button.textContent=chapter;
 
-button.textContent = chapter;
-
-button.onclick = function(){
+button.onclick=function(){
 startQuiz(subject,chapter);
 };
 
@@ -614,91 +689,77 @@ box.appendChild(button);
 
 }
 
-
 function startQuiz(subject,chapter){
 
-selectedSubject = subject;
-selectedChapter = chapter;
+selectedSubject=subject;
+selectedChapter=chapter;
 
-const key = subject + "|" + chapter;
+const key=subject+"|"+chapter;
 
-currentQuestions = questions[key] || [];
+currentQuestions=questions[key] || [];
 
-currentQuestion = 0;
-score = 0;
+currentQuestion=0;
+score=0;
 
 document.getElementById("chapterSection").classList.add("hidden");
-
 document.getElementById("quizSection").classList.remove("hidden");
 
 showQuestion();
 
 }
 
-
 function showQuestion(){
 
-const data = currentQuestions[currentQuestion];
+const data=currentQuestions[currentQuestion];
 
 if(!data){
 showScore();
 return;
 }
 
-document.getElementById("quizHeader").innerHTML =
-"<h2>" +
-selectedChapter +
-"</h2>" +
-"<p>Question " +
-(currentQuestion + 1) +
-" of " +
-currentQuestions.length +
-"</p>";
+document.getElementById("quizHeader").innerHTML=
+"<h2>"+selectedChapter+"</h2>"+
+"<p>Question "+(currentQuestion+1)+" of "+currentQuestions.length+"</p>";
 
-let html = "<div class='question'>";
+let html="<div class='question'>";
 
-html += "<h3>" + data.q + "</h3>";
+html+="<h3>"+data.q+"</h3>";
 
 data.options.forEach(function(option,index){
 
-html +=
-"<button class='option' onclick='checkAnswer(" +
-index +
-",this)'>" +
-option +
+html+=
+"<button class='option' onclick='checkAnswer("+index+",this)'>"+
+option+
 "</button>";
 
 });
 
-html += "</div>";
+html+="</div>";
 
-document.getElementById("questionBox").innerHTML = html;
+document.getElementById("questionBox").innerHTML=html;
 
 document.getElementById("nextButton").classList.add("hidden");
 
 }
 
-
 function checkAnswer(index,button){
 
-const data = currentQuestions[currentQuestion];
+const data=currentQuestions[currentQuestion];
 
-const options = document.querySelectorAll(".option");
+const options=document.querySelectorAll(".option");
 
 options.forEach(function(option){
-option.disabled = true;
+option.disabled=true;
 });
 
-if(index === data.answer){
+if(index===data.answer){
 
 button.classList.add("correct");
-
 score++;
 
 }else{
 
 button.classList.add("wrong");
-
 options[data.answer].classList.add("correct");
 
 }
@@ -707,44 +768,35 @@ document.getElementById("nextButton").classList.remove("hidden");
 
 }
 
-
 function nextQuestion(){
 
 currentQuestion++;
 
-if(currentQuestion < currentQuestions.length){
-
+if(currentQuestion<currentQuestions.length){
 showQuestion();
-
 }else{
-
 showScore();
-
 }
 
 }
-
 
 function showScore(){
 
 document.getElementById("quizSection").classList.add("hidden");
-
 document.getElementById("scoreSection").classList.remove("hidden");
 
-document.getElementById("scoreText").innerHTML =
-"You scored <strong>" +
-score +
-"</strong> out of <strong>" +
-currentQuestions.length +
+document.getElementById("scoreText").innerHTML=
+"You scored <strong>"+
+score+
+"</strong> out of <strong>"+
+currentQuestions.length+
 "</strong>.";
 
 }
 
-
 function restartQuiz(){
 
 document.getElementById("scoreSection").classList.add("hidden");
-
 document.getElementById("subjectSection").classList.remove("hidden");
 
 }
@@ -752,4 +804,4 @@ document.getElementById("subjectSection").classList.remove("hidden");
 </script>
 
 </body>
-  </html>
+</html>
